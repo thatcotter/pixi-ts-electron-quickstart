@@ -92,3 +92,13 @@ function update(this: any, delta: number) {
 };
 
 main();
+
+export interface IElectronAPI {
+	handleBackground: (callback: (event:any, value:any) => void) => void,
+}
+
+declare global {
+	interface Window {
+		electronAPI: IElectronAPI
+	}
+}

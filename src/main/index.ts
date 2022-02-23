@@ -27,12 +27,12 @@ const createWindow = (): void => {
   // and load the index.html of the app.
   mainWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY);
 
-  // setInterval(() => {
-  //   // console.log('here')
-  //   const color = Math.round(Math.random() * 0xffffff);
-  //   console.log(color)
-  //   mainWindow.webContents.send('update-background', color)
-  // }, 1000)
+//   setInterval(() => {
+//     // console.log('here')
+//     const color = Math.round(Math.random() * 0xffffff);
+//     console.log(color)
+//     mainWindow.webContents.send('update-background', color)
+//   }, 1000)
 
   // Open the DevTools.
   mainWindow.webContents.openDevTools();
