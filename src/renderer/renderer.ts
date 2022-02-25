@@ -83,6 +83,8 @@ export const main = async (): Promise<void> => {
         sprite
     };
 
+    let gui = new dat.GUI();
+
     app.ticker.add(update, context);
 };
 
