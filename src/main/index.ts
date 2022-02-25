@@ -2,29 +2,16 @@ import { app, BrowserWindow } from 'electron';
 import * as path from "path";
 
 
-// var Readable = require("stream").Readable;  
-// var util = require("util");  
-// util.inherits(MyStream, Readable);  
-// function MyStream(opt:any) {  
-//   Readable.call(this, opt);
-// }
-// MyStream.prototype._read = function() {};  
-// // hook in our stream
-
-// // compiler-ignoring work-around
-// // @ts-ignore
-// process.__defineGetter__("stdin", function() {  
-//   // @ts-ignore
-//   if (process.__stdin) return process.__stdin;
-//   // @ts-ignore
-//   process.__stdin = new MyStream();
-//   // @ts-ignore
-//   return process.__stdin;
-// });
-
+// be sure to upload StandardFirmataPlus to your board
+// and run 'npm run rebuild' so johnny-five is compatible
 const five = require('johnny-five');
-const board = new five.Board();
-
+const board = new five.Board({
+  // name of the port your arduino is connected to
+  // on mac this is probably "dev/tty/[something]"
+  // on windows this is probably "COM[number]"
+  port: "COM6",
+  repl: false
+});
 
 board.on("ready", () => {
   let led = new five.Led(13);
