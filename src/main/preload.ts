@@ -7,3 +7,11 @@
 //     return ipcRenderer.on('update-background', callback);
 //   }
 // })
+
+import { contextBridge, ipcRenderer } from "electron";
+
+contextBridge.exposeInMainWorld('electronAPI', {
+	handleBackground: (callback:any) => {
+		return ipcRenderer.on('update-background', callback)
+	}
+})
