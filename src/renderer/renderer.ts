@@ -20,7 +20,7 @@ import * as PIXI from "pixi.js"
 // import { install } from '@pixi/unsafe-eval';
 import * as dat from 'dat.gui'
 
-let stats: any;
+// let stats: any;
 
 // const ShaderSystem = PIXI.ShaderSystem
 // install({ ShaderSystem })
@@ -37,11 +37,19 @@ export const main = async (): Promise<void> => {
     // Actual app
     let app = new PIXI.Application({ antialias: true, backgroundColor: 0x111111 });
 
+	console.log('hello, electron')
+
     // window.electronAPI.handleBackground((event: any, value: any) => {
     //     console.log(event)
     //     console.log(value)
     //     app.renderer.backgroundColor = value
     // })
+
+	window.electronAPI.handleBackground((event:any, value: any) => {
+		console.log(event)
+		console.log(value)
+		app.renderer.backgroundColor = value
+	})
 
     // Display application properly
     document.body.style.margin = '0';
@@ -80,7 +88,7 @@ export const main = async (): Promise<void> => {
 
 // Cannot be an arrow function. Arrow functions cannot have a 'this' parameter.
 function update(this: any, delta: number) {
-    if (stats) stats.update();
+    // if (stats) stats.update();
     if (this.sprite.x <= 0 || this.sprite.x >= window.innerWidth - this.sprite.width) {
         this.velocity.x = -this.velocity.x;
     }

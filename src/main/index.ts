@@ -34,6 +34,17 @@ const createWindow = (): void => {
 //     mainWindow.webContents.send('update-background', color)
 //   }, 1000)
 
+
+  setInterval(() => {
+	console.log("sending data to the browser...")
+
+	const color = Math.round(0xffffff * Math.random())
+
+	mainWindow.webContents.send('update-background', color)
+
+	console.log(color)
+  }, 2000)
+
   // Open the DevTools.
   mainWindow.webContents.openDevTools();
 };
